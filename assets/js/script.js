@@ -1,39 +1,13 @@
 document.addEventListener("DOMContentLoaded", () => {
-  
-  // ==========================================================================
-  // MOBILE MENU TOGGLE
-  // ==========================================================================
-  const menuToggle = document.querySelector(".menu-toggle");
-  const navLinks = document.querySelector(".nav-links");
-  
-  if (menuToggle && navLinks) {
-    menuToggle.addEventListener("click", () => {
-      navLinks.classList.toggle("active");
-      const icon = menuToggle.querySelector("i");
-      if (icon) {
-        if (navLinks.classList.contains("active")) {
-          icon.className = "fas fa-times";
-        } else {
-          icon.className = "fas fa-bars";
-        }
-      }
-    });
-
-    // Close menu when clicking a link
-    document.querySelectorAll(".nav-links a").forEach(link => {
-      link.addEventListener("click", () => {
-        navLinks.classList.remove("active");
-        const icon = menuToggle.querySelector("i");
-        if (icon) icon.className = "fas fa-bars";
-      });
-    });
-  }
 
   // ==========================================================================
-  // NAVBAR SHRINK ON SCROLL (JS FALLBACK)
+  // NAVBAR (Stisla toggle + scroll shrink)
   // ==========================================================================
-  const navbar = document.querySelector(".navbar");
-  
+  const navbar = document.getElementById("navbar");
+  const navToggle = document.querySelector("[data-stisla-navbar-toggle]");
+  const navMenu = document.querySelector(".navbar__menu");
+
+  // Scroll shrink
   const handleScroll = () => {
     if (window.scrollY > 50) {
       navbar.classList.add("navbar-scrolled");
@@ -41,47 +15,60 @@ document.addEventListener("DOMContentLoaded", () => {
       navbar.classList.remove("navbar-scrolled");
     }
   };
-  
   window.addEventListener("scroll", handleScroll);
-  // Initial check
   handleScroll();
+
+  // Mobile toggle
+  if (navToggle && navMenu) {
+    navToggle.addEventListener("click", () => {
+      navMenu.classList.toggle("open");
+    });
+  }
+
+  // Close mobile menu on link click
+  document.querySelectorAll(".navbar__button").forEach(link => {
+    link.addEventListener("click", () => {
+      if (navMenu && navMenu.classList.contains("open")) {
+        navMenu.classList.remove("open");
+      }
+    });
+  });
 
   // Active link highlighter on scroll
   const sections = document.querySelectorAll("section");
-  const navItems = document.querySelectorAll(".nav-links a");
-  
+  const navItems = document.querySelectorAll(".navbar__button");
+
   window.addEventListener("scroll", () => {
     let current = "";
     sections.forEach(section => {
       const sectionTop = section.offsetTop;
-      const sectionHeight = section.clientHeight;
       if (pageYOffset >= sectionTop - 120) {
         current = section.getAttribute("id");
       }
     });
-    
+
     navItems.forEach(item => {
-      item.classList.remove("active");
+      item.removeAttribute("data-state");
       if (item.getAttribute("href").substring(1) === current) {
-        item.classList.add("active");
+        item.setAttribute("data-state", "active");
       }
     });
   });
 
   // ==========================================================================
-  // STATS COUNTER WITH INTERSECTION OBSERVER
+  // STATS COUNTER
   // ==========================================================================
   const counters = document.querySelectorAll(".stat-number");
-  
+
   const startCounterAnimation = (counter) => {
     const target = parseInt(counter.getAttribute("data-target"), 10);
     const suffix = counter.getAttribute("data-suffix") || "";
     let current = 0;
-    const duration = 2000; // 2 seconds
+    const duration = 2000;
     const stepTime = 15;
     const steps = duration / stepTime;
     const increment = target / steps;
-    
+
     const timer = setInterval(() => {
       current += increment;
       if (current >= target) {
@@ -93,11 +80,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }, stepTime);
   };
 
-  const observerOptions = {
-    threshold: 0.5,
-    rootMargin: "0px"
-  };
-
   const counterObserver = new IntersectionObserver((entries, observer) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
@@ -105,13 +87,15 @@ document.addEventListener("DOMContentLoaded", () => {
         observer.unobserve(entry.target);
       }
     });
-  }, observerOptions);
+  }, { threshold: 0.5 });
 
   counters.forEach(counter => {
     counterObserver.observe(counter);
   });
 
-  // Trigger progress bar fills on scroll
+  // ==========================================================================
+  // PROGRESS BAR FILLS ON SCROLL
+  // ==========================================================================
   const progressBars = document.querySelectorAll(".progress-bar-fill");
   const progressObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
@@ -128,33 +112,32 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   // ==========================================================================
-  // CHART.JS INITIALIZATION (WITH OBSERVER)
+  // CHART.JS (with observer)
   // ==========================================================================
   const chartCanvas = document.getElementById("companyChart");
-  
+
   if (chartCanvas) {
     let chartInitialized = false;
-    
+
     const initChart = () => {
       const ctx = chartCanvas.getContext("2d");
-      
-      // Custom styling for chart
+
       Chart.defaults.color = "#94a3b8";
       Chart.defaults.font.family = "'Plus Jakarta Sans', sans-serif";
-      
+
       new Chart(ctx, {
         type: 'bar',
         data: {
-          labels: ['Efisiensi Mesin', 'Kualitas Produk (AX/A)', 'Kepatuhan K3', 'Ketersediaan Bahan Baku', 'Kemitraan Vokasi'],
+          labels: ['Efisiensi Mesin', 'Kualitas Produk (AA/A)', 'Kepatuhan K3', 'Ketersediaan Bahan Baku', 'Kemitraan Vokasi'],
           datasets: [{
             label: 'Indeks Kinerja (%)',
             data: [95, 92, 98, 88, 100],
             backgroundColor: [
-              'rgba(59, 130, 246, 0.65)',  // Blue
-              'rgba(6, 182, 212, 0.65)',   // Cyan
-              'rgba(139, 92, 246, 0.65)',  // Purple
-              'rgba(59, 130, 246, 0.65)',  // Blue
-              'rgba(6, 182, 212, 0.65)'    // Cyan
+              'rgba(59, 130, 246, 0.65)',
+              'rgba(6, 182, 212, 0.65)',
+              'rgba(139, 92, 246, 0.65)',
+              'rgba(59, 130, 246, 0.65)',
+              'rgba(6, 182, 212, 0.65)'
             ],
             borderColor: [
               '#3b82f6',
@@ -171,9 +154,7 @@ document.addEventListener("DOMContentLoaded", () => {
           responsive: true,
           maintainAspectRatio: false,
           plugins: {
-            legend: {
-              display: false
-            },
+            legend: { display: false },
             tooltip: {
               backgroundColor: '#1e293b',
               titleColor: '#f8fafc',
@@ -188,14 +169,10 @@ document.addEventListener("DOMContentLoaded", () => {
             y: {
               beginAtZero: true,
               max: 100,
-              grid: {
-                color: 'rgba(255, 255, 255, 0.05)'
-              }
+              grid: { color: 'rgba(255, 255, 255, 0.05)' }
             },
             x: {
-              grid: {
-                display: false
-              }
+              grid: { display: false }
             }
           }
         }
@@ -216,7 +193,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   // ==========================================================================
-  // GALLERY LIGHTBOX SYSTEM
+  // GALLERY LIGHTBOX
   // ==========================================================================
   const galleryItems = document.querySelectorAll(".gallery-card-item");
   const lightbox = document.getElementById("lightbox");
@@ -225,45 +202,43 @@ document.addEventListener("DOMContentLoaded", () => {
   const lightboxClose = lightbox ? lightbox.querySelector(".lightbox-close") : null;
   const lightboxPrev = lightbox ? lightbox.querySelector(".lightbox-prev") : null;
   const lightboxNext = lightbox ? lightbox.querySelector(".lightbox-next") : null;
-  
+
   if (galleryItems.length > 0 && lightbox) {
     let currentIndex = 0;
-    
+
     const showImage = (index) => {
       currentIndex = index;
       const currentItem = galleryItems[currentIndex];
       const imgUrl = currentItem.getAttribute("data-image");
       const caption = currentItem.getAttribute("data-caption");
-      
+
       lightboxImg.src = imgUrl;
       lightboxCaption.innerText = caption;
     };
-    
+
     galleryItems.forEach((item, index) => {
       item.addEventListener("click", () => {
         showImage(index);
         lightbox.classList.add("active");
-        document.body.style.overflow = "hidden"; // Disable background scrolling
+        document.body.style.overflow = "hidden";
       });
     });
-    
+
     const closeLightbox = () => {
       lightbox.classList.remove("active");
-      document.body.style.overflow = "auto"; // Re-enable background scrolling
+      document.body.style.overflow = "auto";
     };
-    
+
     if (lightboxClose) {
       lightboxClose.addEventListener("click", closeLightbox);
     }
-    
-    // Close on clicking outside the image
+
     lightbox.addEventListener("click", (e) => {
       if (e.target === lightbox) {
         closeLightbox();
       }
     });
-    
-    // Navigation arrows
+
     if (lightboxPrev) {
       lightboxPrev.addEventListener("click", (e) => {
         e.stopPropagation();
@@ -272,7 +247,7 @@ document.addEventListener("DOMContentLoaded", () => {
         showImage(prevIndex);
       });
     }
-    
+
     if (lightboxNext) {
       lightboxNext.addEventListener("click", (e) => {
         e.stopPropagation();
@@ -281,8 +256,7 @@ document.addEventListener("DOMContentLoaded", () => {
         showImage(nextIndex);
       });
     }
-    
-    // Keyboard navigation
+
     document.addEventListener("keydown", (e) => {
       if (lightbox.classList.contains("active")) {
         if (e.key === "Escape") closeLightbox();
@@ -301,30 +275,29 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   // ==========================================================================
-  // CONTACT FORM VALIDATION & INTERACTION
+  // CONTACT FORM
   // ==========================================================================
   const contactForm = document.getElementById("contactForm");
-  
+
   if (contactForm) {
     contactForm.addEventListener("submit", (e) => {
       e.preventDefault();
-      
-      const name = document.getElementById("formName").value.strip || document.getElementById("formName").value;
-      const email = document.getElementById("formEmail").value.strip || document.getElementById("formEmail").value;
-      const message = document.getElementById("formMessage").value.strip || document.getElementById("formMessage").value;
-      
+
+      const name = document.getElementById("formName").value.trim();
+      const email = document.getElementById("formEmail").value.trim();
+      const message = document.getElementById("formMessage").value.trim();
+
       if (!name || !email || !message) {
         alert("Harap lengkapi semua bidang formulir.");
         return;
       }
-      
-      // Simulate submission success
+
       const submitBtn = contactForm.querySelector("button[type='submit']");
       const originalText = submitBtn.innerHTML;
-      
-      submitBtn.innerHTML = "<i class='fas fa-circle-notch fa-spin'></i> Mengirim...";
+
+      submitBtn.innerHTML = "<span class='spinner spinner--sm'></span> Mengirim...";
       submitBtn.disabled = true;
-      
+
       setTimeout(() => {
         alert(`Terima kasih ${name}, pesan Anda telah simulasi terkirim! (Static Demo)`);
         contactForm.reset();
