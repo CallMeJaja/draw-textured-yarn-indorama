@@ -1,0 +1,8 @@
+
+# Backup images
+assets/img_backup/
+
+# Optimization scripts
+optimize_images.sh
+update_images.py
+fix_images.py
