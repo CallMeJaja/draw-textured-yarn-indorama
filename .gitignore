@@ -6,3 +6,11 @@ assets/img_backup/
 optimize_images.sh
 update_images.py
 fix_images.py
+
+# Node.js
+node_modules/
+package.json
+package-lock.json
+
+# Tailwind build artifacts
+assets/css/tailwind-input.css
