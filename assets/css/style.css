@@ -8,6 +8,11 @@ html {
   scroll-padding-top: 80px;
 }
 
+/* Font display for better performance */
+@font-face {
+  font-display: swap;
+}
+
 body {
   overflow-x: hidden;
   line-height: 1.6;
