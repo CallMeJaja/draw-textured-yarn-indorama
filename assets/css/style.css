@@ -103,12 +103,17 @@ h1, h2, h3, h4, h5, h6 {
   z-index: 1000;
   padding: 1rem 0;
   background: transparent;
-  transition: padding 0.3s, background 0.3s, border-bottom 0.3s, backdrop-filter 0.3s;
+  transition: transform 0.3s ease, padding 0.3s, background 0.3s, border-bottom 0.3s, backdrop-filter 0.3s;
+  will-change: transform;
+}
+
+.navbar.navbar-hidden {
+  transform: translateY(-100%);
 }
 
 .navbar.navbar-scrolled {
   padding: 0.5rem 0;
-  background: rgba(11, 15, 25, 0.85);
+  background: rgba(11, 15, 25, 0.95);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
@@ -594,94 +599,7 @@ section {
 .gallery-card-item:hover .gallery-overlay p { transform: translateY(0); }
 
 /* ==========================================================================
-   LIGHTBOX
-   ========================================================================== */
-.lightbox-modal {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(7, 10, 17, 0.95);
-  backdrop-filter: blur(15px);
-  -webkit-backdrop-filter: blur(15px);
-  z-index: 2000;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.3s;
-}
-
-.lightbox-modal.active { opacity: 1; pointer-events: auto; }
-
-.lightbox-content {
-  position: relative;
-  max-width: 90%;
-  max-height: 80%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.lightbox-content img {
-  max-width: 100%;
-  max-height: 70vh;
-  border-radius: 12px;
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
-}
-
-.lightbox-caption {
-  color: #f8fafc;
-  margin-top: 20px;
-  font-size: 16px;
-  font-weight: 500;
-  text-align: center;
-}
-
-.lightbox-close {
-  position: absolute;
-  top: -40px;
-  right: 0;
-  background: none;
-  border: none;
-  color: #94a3b8;
-  font-size: 30px;
-  cursor: pointer;
-  transition: color 0.2s;
-}
-
-.lightbox-close:hover { color: #f8fafc; }
-
-.lightbox-nav {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  color: #f8fafc;
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  font-size: 20px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  transition: background 0.2s, border-color 0.2s;
-}
-
-.lightbox-nav:hover {
-  background: rgba(255, 255, 255, 0.1);
-  border-color: rgba(255, 255, 255, 0.15);
-}
-
-.lightbox-prev { left: -80px; }
-.lightbox-next { right: -80px; }
-
-/* ==========================================================================
+   FORM (Stisla override for dark theme)
    FORM (Stisla override for dark theme)
    ========================================================================== */
 .contact .input,
@@ -709,6 +627,44 @@ section {
 .contact .textarea::placeholder { color: rgba(148, 163, 184, 0.6); }
 
 .contact .textarea { resize: vertical; min-height: 120px; }
+
+/* ==========================================================================
+   CONTACT SECTION RESPONSIVE FIX
+   ========================================================================== */
+.contact-info-panel {
+  overflow: hidden;
+}
+
+.map-card {
+  position: relative;
+  width: 100%;
+  min-height: 200px;
+}
+
+.map-card iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+@media (max-width: 64rem) {
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+}
+
+@media (min-width: 64rem) {
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+  }
+}
 
 
 
@@ -748,6 +704,11 @@ section {
     gap: 4px;
   }
   .navbar__button { padding: 12px 16px; width: 100%; }
+  
+  /* Hero - add top margin for badge */
+  .hero-tag {
+    margin-top: 60px;
+  }
   
   /* Hero */
   .hero h1 { font-size: 2.75rem; text-align: center; }

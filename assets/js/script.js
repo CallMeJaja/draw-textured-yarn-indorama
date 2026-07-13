@@ -1,22 +1,45 @@
 document.addEventListener("DOMContentLoaded", () => {
 
   // ==========================================================================
-  // NAVBAR (Stisla toggle + scroll shrink)
+  // NAVBAR (Auto-hide on scroll + mobile toggle)
   // ==========================================================================
   const navbar = document.getElementById("navbar");
   const navToggle = document.querySelector("[data-stisla-navbar-toggle]");
   const navMenu = document.querySelector(".navbar__menu");
 
-  // Scroll shrink
-  const handleScroll = () => {
-    if (window.scrollY > 50) {
+  // Auto-hide navbar on scroll
+  let lastScrollY = window.scrollY;
+  let ticking = false;
+
+  const updateNavbar = () => {
+    const currentScrollY = window.scrollY;
+
+    // Add/remove scrolled class for background
+    if (currentScrollY > 50) {
       navbar.classList.add("navbar-scrolled");
     } else {
       navbar.classList.remove("navbar-scrolled");
     }
+
+    // Auto-hide on scroll down, show on scroll up
+    if (currentScrollY > lastScrollY && currentScrollY > 100) {
+      // Scroll down - hide navbar
+      navbar.classList.add("navbar-hidden");
+    } else if (currentScrollY < lastScrollY) {
+      // Scroll up - show navbar
+      navbar.classList.remove("navbar-hidden");
+    }
+
+    lastScrollY = currentScrollY;
+    ticking = false;
   };
-  window.addEventListener("scroll", handleScroll);
-  handleScroll();
+
+  window.addEventListener("scroll", () => {
+    if (!ticking) {
+      window.requestAnimationFrame(updateNavbar);
+      ticking = true;
+    }
+  });
 
   // Mobile toggle
   if (navToggle && navMenu) {
@@ -193,84 +216,26 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   // ==========================================================================
-  // GALLERY LIGHTBOX
+  // GALLERY LIGHTBOX (Stisla Dialog)
   // ==========================================================================
   const galleryItems = document.querySelectorAll(".gallery-card-item");
-  const lightbox = document.getElementById("lightbox");
-  const lightboxImg = lightbox ? lightbox.querySelector("img") : null;
-  const lightboxCaption = lightbox ? lightbox.querySelector(".lightbox-caption") : null;
-  const lightboxClose = lightbox ? lightbox.querySelector(".lightbox-close") : null;
-  const lightboxPrev = lightbox ? lightbox.querySelector(".lightbox-prev") : null;
-  const lightboxNext = lightbox ? lightbox.querySelector(".lightbox-next") : null;
+  const lightboxTrigger = document.getElementById("lightboxTrigger");
+  const lightboxImg = document.getElementById("lightboxImg");
+  const lightboxCaption = document.getElementById("lightboxCaption");
 
-  if (galleryItems.length > 0 && lightbox) {
-    let currentIndex = 0;
-
-    const showImage = (index) => {
-      currentIndex = index;
-      const currentItem = galleryItems[currentIndex];
-      const imgUrl = currentItem.getAttribute("data-image");
-      const caption = currentItem.getAttribute("data-caption");
-
-      lightboxImg.src = imgUrl;
-      lightboxCaption.innerText = caption;
-    };
-
+  if (galleryItems.length > 0 && lightboxTrigger) {
     galleryItems.forEach((item, index) => {
       item.addEventListener("click", () => {
-        showImage(index);
-        lightbox.classList.add("active");
-        document.body.style.overflow = "hidden";
+        const imgUrl = item.getAttribute("data-image");
+        const caption = item.getAttribute("data-caption");
+
+        // Update lightbox content
+        lightboxImg.src = imgUrl;
+        lightboxCaption.innerText = caption;
+
+        // Trigger Stisla Dialog
+        lightboxTrigger.click();
       });
-    });
-
-    const closeLightbox = () => {
-      lightbox.classList.remove("active");
-      document.body.style.overflow = "auto";
-    };
-
-    if (lightboxClose) {
-      lightboxClose.addEventListener("click", closeLightbox);
-    }
-
-    lightbox.addEventListener("click", (e) => {
-      if (e.target === lightbox) {
-        closeLightbox();
-      }
-    });
-
-    if (lightboxPrev) {
-      lightboxPrev.addEventListener("click", (e) => {
-        e.stopPropagation();
-        let prevIndex = currentIndex - 1;
-        if (prevIndex < 0) prevIndex = galleryItems.length - 1;
-        showImage(prevIndex);
-      });
-    }
-
-    if (lightboxNext) {
-      lightboxNext.addEventListener("click", (e) => {
-        e.stopPropagation();
-        let nextIndex = currentIndex + 1;
-        if (nextIndex >= galleryItems.length) nextIndex = 0;
-        showImage(nextIndex);
-      });
-    }
-
-    document.addEventListener("keydown", (e) => {
-      if (lightbox.classList.contains("active")) {
-        if (e.key === "Escape") closeLightbox();
-        if (e.key === "ArrowLeft") {
-          let prevIndex = currentIndex - 1;
-          if (prevIndex < 0) prevIndex = galleryItems.length - 1;
-          showImage(prevIndex);
-        }
-        if (e.key === "ArrowRight") {
-          let nextIndex = currentIndex + 1;
-          if (nextIndex >= galleryItems.length) nextIndex = 0;
-          showImage(nextIndex);
-        }
-      }
     });
   }
 

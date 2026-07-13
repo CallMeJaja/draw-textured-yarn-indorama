@@ -565,7 +565,7 @@
               </div>
               <div class="glass-panel flex gap-4 p-4">
                 <div class="icon-box icon-box--primary">
-                  <i class="ph ph-mask"></i>
+                  <i class="ph ph-mask-happy"></i>
                 </div>
                 <div>
                   <h3 class="font-heading font-bold mb-1">Masker (Pelindung Pernapasan)</h3>
@@ -735,22 +735,23 @@
       </div>
     </section>
 
-    <!-- Lightbox Modal -->
-    <div class="lightbox-modal" id="lightbox">
-      <div class="lightbox-content">
-        <button class="lightbox-close" aria-label="Tutup">
+    <!-- Lightbox Dialog -->
+    <div class="dialog" id="lightbox" data-stisla-dialog>
+      <div class="dialog__backdrop" data-stisla-dialog-dismiss></div>
+      <div class="dialog__panel dialog--lg">
+        <button class="dialog__close" data-stisla-dialog-dismiss aria-label="Tutup">
           <i class="ph ph-x"></i>
         </button>
-        <button class="lightbox-nav lightbox-prev" aria-label="Sebelumnya">
-          <i class="ph ph-caret-left"></i>
-        </button>
-        <img src="" alt="Detail Gambar Lightbox" />
-        <button class="lightbox-nav lightbox-next" aria-label="Selanjutnya">
-          <i class="ph ph-caret-right"></i>
-        </button>
-        <div class="lightbox-caption"></div>
+        <div class="dialog__content p-0">
+          <img src="" alt="Detail Gambar" id="lightboxImg" class="w-full rounded-t-lg" style="max-height: 70vh; object-fit: contain;" />
+          <div class="p-4">
+            <p class="lightbox-caption mb-0 text-center text-slate-300" id="lightboxCaption"></p>
+          </div>
+        </div>
       </div>
     </div>
+    <!-- Hidden trigger for Stisla Dialog -->
+    <button data-stisla-dialog-trigger="lightbox" class="hidden" id="lightboxTrigger"></button>
 
     <!-- CONTACT -->
     <section class="contact" id="kontak">
@@ -869,7 +870,7 @@
               <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" 
                  class="flex items-center justify-center w-9 h-9 rounded-lg bg-white/5 border border-white/10 text-slate-300 hover:bg-blue-500/10 hover:border-blue-500/30 hover:text-blue-500 transition-all duration-200"
                  aria-label="Instagram">
-                <i class="ph ph-instagram text-lg"></i>
+                <i class="ph ph-instagram-logo text-lg"></i>
               </a>
               <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer"
                  class="flex items-center justify-center w-9 h-9 rounded-lg bg-white/5 border border-white/10 text-slate-300 hover:bg-blue-500/10 hover:border-blue-500/30 hover:text-blue-500 transition-all duration-200"
