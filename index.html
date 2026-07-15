@@ -16,6 +16,20 @@
       content="Draw Textured Yarn, DTY, Indorama, PEI, Politeknik Enjiniring Indorama, Manufaktur Tekstil, Mesin Murata, Benang Polyester, Purwakarta"
     />
 
+    <meta property="og:title" content="Draw Textured Yarn Indorama - Portal Edukasi Produksi Benang DTY" />
+    <meta property="og:description" content="Portal edukatif mengenai alur proses produksi benang DTY (Draw Textured Yarn) di Unit DTY PT Indorama Synthetics Tbk Jatiluhur Purwakarta." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://callmejaja.github.io/draw-textured-yarn-indorama/" />
+    <meta property="og:image" content="assets/img/hero-group.jpg" />
+    <meta property="og:locale" content="id_ID" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Draw Textured Yarn Indorama - Portal Edukasi Produksi Benang DTY" />
+    <meta name="twitter:description" content="Portal edukatif mengenai alur proses produksi benang DTY di Unit DTY PT Indorama Synthetics Tbk." />
+    <meta name="twitter:image" content="assets/img/hero-group.jpg" />
+
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🧵</text></svg>" />
+
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="preconnect" href="https://cdn.jsdelivr.net" />
@@ -49,7 +63,7 @@
     <link rel="stylesheet" href="assets/css/tailwind.css" />
     <link rel="stylesheet" href="assets/css/style.css" />
   </head>
-  <body class="font-body bg-[#0b0f19] text-slate-50">
+  <body class="font-body">
     <div class="glowing-orbs-container">
       <div class="orb orb-1"></div>
       <div class="orb orb-2"></div>
@@ -62,13 +76,24 @@
         <a href="#hero" class="navbar__brand">
           <span class="brand-gradient">Draw Textured Yarn Indorama</span>
         </a>
-        <button
-          class="navbar__toggle"
-          data-stisla-navbar-toggle
-          aria-label="Buka Menu"
-        >
-          <i class="ph ph-list"></i>
-        </button>
+        <div class="navbar__right">
+          <button
+            class="theme-toggle"
+            id="themeToggle"
+            aria-label="Ganti tema"
+            title="Ganti tema"
+          >
+            <i class="ph ph-moon theme-icon--dark"></i>
+            <i class="ph ph-sun theme-icon--light"></i>
+          </button>
+          <button
+            class="navbar__toggle"
+            data-stisla-navbar-toggle
+            aria-label="Buka Menu"
+          >
+            <i class="ph ph-list"></i>
+          </button>
+        </div>
         <div class="navbar__menu">
           <ul class="navbar__nav">
             <li>
@@ -1086,7 +1111,6 @@
                     id="formName"
                     class="input w-full"
                     placeholder="Masukkan nama Anda"
-                    required
                   />
                 </div>
                 <div class="mb-4">
@@ -1100,7 +1124,6 @@
                     id="formEmail"
                     class="input w-full"
                     placeholder="contoh@domain.com"
-                    required
                   />
                 </div>
                 <div class="mb-4">
@@ -1114,7 +1137,6 @@
                     class="textarea w-full"
                     rows="4"
                     placeholder="Tuliskan pesan atau pertanyaan Anda di sini..."
-                    required
                   ></textarea>
                 </div>
                 <button type="submit" class="button button--primary w-full">
@@ -1177,7 +1199,7 @@
     </main>
 
     <!-- FOOTER -->
-    <footer class="bg-[#070a11] border-t border-white/5">
+    <footer>
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <!-- Main Grid -->
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">

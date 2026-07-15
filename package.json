@@ -1,0 +1,27 @@
+{
+  "name": "draw-textured-yarn-indorama",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build:css": "npx @tailwindcss/cli -i assets/css/tailwind-input.css -o assets/css/tailwind.css",
+    "watch:css": "npx @tailwindcss/cli -i assets/css/tailwind-input.css -o assets/css/tailwind.css --watch",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CallMeJaja/draw-textured-yarn-indorama.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/CallMeJaja/draw-textured-yarn-indorama/issues"
+  },
+  "homepage": "https://github.com/CallMeJaja/draw-textured-yarn-indorama#readme",
+  "devDependencies": {
+    "@tailwindcss/cli": "^4.3.2",
+    "tailwindcss": "^4.3.2"
+  }
+}

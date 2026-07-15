@@ -9,8 +9,6 @@ fix_images.py
 
 # Node.js
 node_modules/
-package.json
-package-lock.json
 
 # Tailwind build artifacts
 assets/css/tailwind-input.css

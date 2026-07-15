@@ -1,11 +1,28 @@
 document.addEventListener("DOMContentLoaded", () => {
 
   // ==========================================================================
-  // NAVBAR (Auto-hide on scroll + mobile toggle)
+  // THEME TOGGLE (Dark / Light mode)
+  // ==========================================================================
+  const themeToggle = document.getElementById("themeToggle");
+  const html = document.documentElement;
+
+  const savedTheme = localStorage.getItem("theme") || "dark";
+  html.setAttribute("data-theme", savedTheme);
+
+  if (themeToggle) {
+    themeToggle.addEventListener("click", () => {
+      const current = html.getAttribute("data-theme");
+      const next = current === "dark" ? "light" : "dark";
+      html.setAttribute("data-theme", next);
+      localStorage.setItem("theme", next);
+    });
+  }
+
+  // ==========================================================================
+  // NAVBAR (Auto-hide on scroll — toggle handled by Stisla Collapsible)
   // ==========================================================================
   const navbar = document.getElementById("navbar");
   const navToggle = document.querySelector("[data-stisla-navbar-toggle]");
-  const navMenu = document.querySelector(".navbar__menu");
 
   // Auto-hide navbar on scroll
   let lastScrollY = window.scrollY;
@@ -41,18 +58,12 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-  // Mobile toggle
-  if (navToggle && navMenu) {
-    navToggle.addEventListener("click", () => {
-      navMenu.classList.toggle("open");
-    });
-  }
-
-  // Close mobile menu on link click
+  // Close mobile menu on link click (using Stisla toggle)
   document.querySelectorAll(".navbar__button").forEach(link => {
     link.addEventListener("click", () => {
-      if (navMenu && navMenu.classList.contains("open")) {
-        navMenu.classList.remove("open");
+      const menu = document.querySelector(".navbar__menu");
+      if (menu && menu.dataset.state === "open") {
+        navToggle.click();
       }
     });
   });
@@ -253,7 +264,9 @@ document.addEventListener("DOMContentLoaded", () => {
       const message = document.getElementById("formMessage").value.trim();
 
       if (!name || !email || !message) {
-        alert("Harap lengkapi semua bidang formulir.");
+        Stisla.toast.warning("Formulir belum lengkap", {
+          description: "Harap isi semua bidang sebelum mengirim."
+        });
         return;
       }
 
@@ -264,7 +277,9 @@ document.addEventListener("DOMContentLoaded", () => {
       submitBtn.disabled = true;
 
       setTimeout(() => {
-        alert(`Terima kasih ${name}, pesan Anda telah simulasi terkirim! (Static Demo)`);
+        Stisla.toast.success("Pesan Terkirim!", {
+          description: `Terima kasih ${name}, pesan Anda telah diterima. (Static Demo)`
+        });
         contactForm.reset();
         submitBtn.innerHTML = originalText;
         submitBtn.disabled = false;
