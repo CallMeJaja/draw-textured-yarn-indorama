@@ -83,16 +83,46 @@
     <nav class="navbar" data-stisla-navbar id="navbar">
       <div class="container flex items-center justify-between" style="width: 100%;">
         <a href="#hero" class="navbar__brand">
-          <span class="brand-gradient brand-full">Draw Textured Yarn Indorama</span>
-          <span class="brand-gradient brand-short">DTY Indorama</span>
+          <span class="brand-gradient">Draw Textured Yarn</span>
+          <img src="assets/img/indorama.webp" alt="Indorama" class="navbar-logo" />
         </a>
-        <button
-          class="navbar__toggle"
-          data-stisla-navbar-toggle
-          data-i18n-attr="aria-label|nav.open_menu"
-        >
-          <i class="ph ph-list"></i>
-        </button>
+        <div class="navbar__actions">
+          <div class="lang-dropdown" id="langDropdown">
+            <button
+              class="lang-toggle"
+              id="langToggle"
+              aria-label="Switch language"
+              title="Switch language"
+            >
+              <i class="ph ph-globe-simple"></i>
+              <span id="langCurrent">ID</span>
+              <i class="ph ph-caret-down lang-caret"></i>
+            </button>
+            <div class="lang-dropdown__menu">
+              <button data-locale="id" class="lang-dropdown__item">
+                <span class="lang-flag">ID</span> Indonesia
+              </button>
+              <button data-locale="en" class="lang-dropdown__item">
+                <span class="lang-flag">EN</span> English
+              </button>
+            </div>
+          </div>
+          <button
+            class="theme-toggle"
+            id="themeToggle"
+            data-i18n-attr="aria-label|nav.toggle_theme;title|nav.toggle_theme"
+          >
+            <i class="ph ph-moon theme-icon--dark"></i>
+            <i class="ph ph-sun theme-icon--light"></i>
+          </button>
+          <button
+            class="navbar__toggle"
+            data-stisla-navbar-toggle
+            data-i18n-attr="aria-label|nav.open_menu"
+          >
+            <i class="ph ph-list"></i>
+          </button>
+        </div>
         <div class="navbar__menu" data-state="closed">
           <ul class="navbar__nav">
             <li>
@@ -108,37 +138,6 @@
             </li>
             <li><a href="#galeri" class="navbar__button" data-i18n="nav.gallery">Galeri</a></li>
             <li><a href="#kontak" class="navbar__button" data-i18n="nav.contact">Kontak</a></li>
-            <li class="navbar__divider"></li>
-            <li class="navbar__actions-mobile">
-              <div class="lang-dropdown" id="langDropdown">
-                <button
-                  class="lang-toggle"
-                  id="langToggle"
-                  aria-label="Switch language"
-                  title="Switch language"
-                >
-                  <i class="ph ph-globe-simple"></i>
-                  <span id="langCurrent">ID</span>
-                  <i class="ph ph-caret-down lang-caret"></i>
-                </button>
-                <div class="lang-dropdown__menu">
-                  <button data-locale="id" class="lang-dropdown__item">
-                    <span class="lang-flag">ID</span> Indonesia
-                  </button>
-                  <button data-locale="en" class="lang-dropdown__item">
-                    <span class="lang-flag">EN</span> English
-                  </button>
-                </div>
-              </div>
-              <button
-                class="theme-toggle"
-                id="themeToggle"
-                data-i18n-attr="aria-label|nav.toggle_theme;title|nav.toggle_theme"
-              >
-                <i class="ph ph-moon theme-icon--dark"></i>
-                <i class="ph ph-sun theme-icon--light"></i>
-              </button>
-            </li>
           </ul>
         </div>
       </div>

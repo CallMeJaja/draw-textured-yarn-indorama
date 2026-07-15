@@ -30,6 +30,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const updateNavbar = () => {
     const currentScrollY = window.scrollY;
+    const menu = document.querySelector(".navbar__menu");
+    const isMenuOpen = menu && menu.dataset.state === "open";
 
     // Add/remove scrolled class for background
     if (currentScrollY > 50) {
@@ -39,11 +41,10 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     // Auto-hide on scroll down, show on scroll up
-    if (currentScrollY > lastScrollY && currentScrollY > 100) {
-      // Scroll down - hide navbar
+    // Skip hide when mobile menu is open
+    if (currentScrollY > lastScrollY && currentScrollY > 100 && !isMenuOpen) {
       navbar.classList.add("navbar-hidden");
     } else if (currentScrollY < lastScrollY) {
-      // Scroll up - show navbar
       navbar.classList.remove("navbar-hidden");
     }
 
@@ -68,11 +69,24 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
+  // Close mobile menu on outside click
+  document.addEventListener("click", (e) => {
+    const menu = document.querySelector(".navbar__menu");
+    const toggle = document.querySelector("[data-stisla-navbar-toggle]");
+    
+    if (menu && menu.dataset.state === "open") {
+      if (!menu.contains(e.target) && !toggle.contains(e.target)) {
+        toggle.click();
+      }
+    }
+  });
+
   // Active link highlighter on scroll
   const sections = document.querySelectorAll("section");
   const navItems = document.querySelectorAll(".navbar__button");
+  let activeTicking = false;
 
-  window.addEventListener("scroll", () => {
+  const updateActiveLink = () => {
     let current = "";
     sections.forEach(section => {
       const sectionTop = section.offsetTop;
@@ -87,6 +101,14 @@ document.addEventListener("DOMContentLoaded", () => {
         item.setAttribute("data-state", "active");
       }
     });
+    activeTicking = false;
+  };
+
+  window.addEventListener("scroll", () => {
+    if (!activeTicking) {
+      window.requestAnimationFrame(updateActiveLink);
+      activeTicking = true;
+    }
   });
 
   // ==========================================================================
