@@ -200,6 +200,21 @@ h1, h2, h3, h4, h5, h6 {
 /* Mobile navbar */
 @media (max-width: 64rem) {
   .navbar__toggle { display: flex; }
+  .navbar__right {
+    gap: 4px;
+  }
+  .theme-toggle {
+    width: 36px;
+    height: 36px;
+    font-size: 1.1rem;
+    border-radius: 8px;
+  }
+  .navbar__toggle {
+    width: 36px;
+    height: 36px;
+    font-size: 1.3rem;
+    padding: 6px 10px;
+  }
   .navbar__menu {
     position: absolute;
     top: 100%;
@@ -774,6 +789,21 @@ section {
 @media (max-width: 64rem) {
   /* Navbar */
   .navbar__toggle { display: flex; }
+  .navbar__right {
+    gap: 4px;
+  }
+  .theme-toggle {
+    width: 36px;
+    height: 36px;
+    font-size: 1.1rem;
+    border-radius: 8px;
+  }
+  .navbar__toggle {
+    width: 36px;
+    height: 36px;
+    font-size: 1.3rem;
+    padding: 6px 10px;
+  }
   .navbar__menu {
     position: absolute;
     top: 100%;
