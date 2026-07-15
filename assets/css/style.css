@@ -652,6 +652,71 @@ section {
   border: none;
 }
 
+/* ==========================================================================
+   MAP PLACEHOLDER (Click-to-load)
+   ========================================================================== */
+.map-placeholder {
+  aspect-ratio: 16 / 10;
+  min-height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(30, 41, 59, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  cursor: pointer;
+  transition: background 0.2s, border-color 0.2s;
+  user-select: none;
+}
+
+.map-placeholder:hover,
+.map-placeholder:focus-visible {
+  background: rgba(30, 41, 59, 0.7);
+  border-color: rgba(59, 130, 246, 0.3);
+}
+
+.map-placeholder__content {
+  text-align: center;
+  color: #94a3b8;
+}
+
+.map-placeholder__content i {
+  font-size: 2rem;
+  color: #3b82f6;
+  margin-bottom: 12px;
+  display: block;
+}
+
+.map-placeholder__content p {
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.map-placeholder__content a {
+  color: #60a5fa;
+  text-decoration: underline;
+  font-size: 0.875rem;
+}
+
+.map-placeholder__content a:hover {
+  color: #93c5fd;
+}
+
+[data-theme="light"] .map-placeholder {
+  background: rgba(241, 245, 249, 0.8);
+  border-color: rgba(0, 0, 0, 0.08);
+}
+
+[data-theme="light"] .map-placeholder:hover,
+[data-theme="light"] .map-placeholder:focus-visible {
+  background: rgba(241, 245, 249, 1);
+  border-color: rgba(59, 130, 246, 0.3);
+}
+
+[data-theme="light"] .map-placeholder__content { color: #475569; }
+[data-theme="light"] .map-placeholder__content i { color: #2563eb; }
+[data-theme="light"] .map-placeholder__content a { color: #2563eb; }
+
 @media (max-width: 64rem) {
   .contact-grid {
     display: grid;
