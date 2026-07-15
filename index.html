@@ -86,11 +86,30 @@
           <span class="brand-gradient">Draw Textured Yarn Indorama</span>
         </a>
         <div class="navbar__right">
+          <div class="lang-dropdown" id="langDropdown">
+            <button
+              class="lang-toggle"
+              id="langToggle"
+              aria-label="Switch language"
+              title="Switch language"
+            >
+              <i class="ph ph-globe-simple"></i>
+              <span id="langCurrent">ID</span>
+              <i class="ph ph-caret-down lang-caret"></i>
+            </button>
+            <div class="lang-dropdown__menu">
+              <button data-locale="id" class="lang-dropdown__item">
+                <span class="lang-flag">ID</span> Indonesia
+              </button>
+              <button data-locale="en" class="lang-dropdown__item">
+                <span class="lang-flag">EN</span> English
+              </button>
+            </div>
+          </div>
           <button
             class="theme-toggle"
             id="themeToggle"
-            aria-label="Ganti tema"
-            title="Ganti tema"
+            data-i18n-attr="aria-label|nav.toggle_theme;title|nav.toggle_theme"
           >
             <i class="ph ph-moon theme-icon--dark"></i>
             <i class="ph ph-sun theme-icon--light"></i>
@@ -98,7 +117,7 @@
           <button
             class="navbar__toggle"
             data-stisla-navbar-toggle
-            aria-label="Buka Menu"
+            data-i18n-attr="aria-label|nav.open_menu"
           >
             <i class="ph ph-list"></i>
           </button>
@@ -107,17 +126,17 @@
           <ul class="navbar__nav">
             <li>
               <a href="#hero" class="navbar__button" data-state="active"
-                >Beranda</a
+                data-i18n="nav.home">Beranda</a
               >
             </li>
-            <li><a href="#tentang" class="navbar__button">Tentang</a></li>
-            <li><a href="#produksi" class="navbar__button">Produksi</a></li>
-            <li><a href="#grading" class="navbar__button">Grading</a></li>
+            <li><a href="#tentang" class="navbar__button" data-i18n="nav.about">Tentang</a></li>
+            <li><a href="#produksi" class="navbar__button" data-i18n="nav.production">Produksi</a></li>
+            <li><a href="#grading" class="navbar__button" data-i18n="nav.grading">Grading</a></li>
             <li>
-              <a href="#k3-edukasi" class="navbar__button">K3 & Edukasi</a>
+              <a href="#k3-edukasi" class="navbar__button" data-i18n="nav.safety">K3 & Edukasi</a>
             </li>
-            <li><a href="#galeri" class="navbar__button">Galeri</a></li>
-            <li><a href="#kontak" class="navbar__button">Kontak</a></li>
+            <li><a href="#galeri" class="navbar__button" data-i18n="nav.gallery">Galeri</a></li>
+            <li><a href="#kontak" class="navbar__button" data-i18n="nav.contact">Kontak</a></li>
           </ul>
         </div>
       </div>
@@ -130,11 +149,11 @@
           <div class="flex flex-col lg:flex-row items-center gap-12">
             <div class="lg:w-7/12">
               <div class="hero-tag">
-                <i class="ph ph-graduation-cap"></i> Tugas Project Akhir
-                Pengantar Manufaktur Tekstil
+                <i class="ph ph-graduation-cap"></i>
+                <span data-i18n="hero.tag">Tugas Project Akhir Pengantar Manufaktur Tekstil</span>
               </div>
-              <h1>Weaving Quality Into Every Fiber</h1>
-              <p class="hero-desc">
+              <h1 data-i18n="hero.title">Menjalin Kualitas Dalam Setiap Helai Benang</h1>
+              <p class="hero-desc" data-i18n="hero.desc">
                 Menyajikan informasi edukatif terintegrasi mengenai proses
                 manufaktur <strong>Draw Textured Yarn (DTY)</strong> pada PT
                 Indorama Synthetics Tbk. Hasil kunjungan industri dan wawancara
@@ -142,10 +161,10 @@
               </p>
               <div class="hero-btns">
                 <a href="#produksi" class="button button--primary">
-                  <i class="ph ph-gear-six"></i> Jelajahi Alur Produksi
+                  <i class="ph ph-gear-six"></i> <span data-i18n="hero.cta1">Jelajahi Alur Produksi</span>
                 </a>
                 <a href="#tentang" class="button button--outline">
-                  Pelajari Kemitraan
+                  <span data-i18n="hero.cta2">Pelajari Kemitraan</span>
                 </a>
               </div>
             </div>
@@ -167,6 +186,7 @@
                   />
                   <img
                     src="assets/img/hero-group.jpg"
+                    data-i18n-attr="alt|hero.image_alt"
                     alt="Kunjungan Industri Mahasiswa PEI ke DTY Indorama"
                     id="heroImage"
                     class="max-w-[380px] w-full rounded-2xl block"
@@ -186,11 +206,11 @@
       <section class="about" id="tentang">
         <div class="container">
           <div class="section-header text-center mx-auto">
-            <span class="section-tag">Tentang Kami</span>
-            <h2 class="section-title">
+            <span class="section-tag" data-i18n="about.tag">Tentang Kami</span>
+            <h2 class="section-title" data-i18n="about.title">
               Kolaborasi Sinergis Industri & Pendidikan
             </h2>
-            <p class="section-desc">
+            <p class="section-desc" data-i18n="about.desc">
               Membangun jembatan kuat antara teori manufaktur tekstil dan
               praktik industri global melalui kolaborasi strategis sejak 2013.
             </p>
@@ -198,7 +218,7 @@
 
           <div class="flex flex-col lg:flex-row items-center gap-12">
             <div class="lg:w-6/12">
-              <p class="text-slate-300 mb-6 leading-relaxed">
+              <p class="text-slate-300 mb-6 leading-relaxed" data-i18n="about.p1">
                 Didirikan pada tahun 2013,
                 <strong>Unit DTY Vocational Training Centre</strong> merupakan
                 inisiatif kolaboratif yang menggabungkan keunggulan produksi
@@ -207,7 +227,7 @@
                 <strong>Politeknik Enjiniring Indorama (PEI)</strong> di
                 Jatiluhur, Purwakarta.
               </p>
-              <p class="text-slate-300 mb-6 leading-relaxed">
+              <p class="text-slate-300 mb-6 leading-relaxed" data-i18n="about.p2">
                 Kerja sama ini tidak sekadar memenuhi rantai pasok industri
                 benang poliester, namun juga berfungsi sebagai wadah
                 pembelajaran langsung (<em>experiential learning</em>).
@@ -216,7 +236,7 @@
                 tekstil untuk menghasilkan benang kualitas ekspor ke berbagai
                 penjuru dunia.
               </p>
-              <p class="text-slate-300 mb-6 leading-relaxed">
+              <p class="text-slate-300 mb-6 leading-relaxed" data-i18n="about.p3">
                 Bahan dasar produksi dimulai dari
                 <strong>cip polimer</strong> (tepung polimer yang diproses
                 menjadi chip), yang kemudian diolah menjadi
@@ -230,8 +250,8 @@
                   <div class="icon-box icon-box--primary mb-3">
                     <i class="ph ph-cpu"></i>
                   </div>
-                  <h3 class="font-heading font-bold mb-2">Teknologi Jepang</h3>
-                  <p class="mb-0 text-sm text-slate-300">
+                  <h3 class="font-heading font-bold mb-2" data-i18n="about.tech_title">Teknologi Jepang</h3>
+                  <p class="mb-0 text-sm text-slate-300" data-i18n="about.tech_desc">
                     Menggunakan mesin pemuntir benang Murata berpresisi tinggi
                     dengan kecepatan ±500 RPM.
                   </p>
@@ -240,8 +260,8 @@
                   <div class="icon-box icon-box--primary mb-3">
                     <i class="ph ph-globe-hemisphere-west"></i>
                   </div>
-                  <h3 class="font-heading font-bold mb-2">Pasar Ekspor</h3>
-                  <p class="mb-0 text-sm text-slate-300">
+                  <h3 class="font-heading font-bold mb-2" data-i18n="about.export_title">Pasar Ekspor</h3>
+                  <p class="mb-0 text-sm text-slate-300" data-i18n="about.export_desc">
                     Melayani kebutuhan tekstil dalam negeri hingga ekspor ke
                     Turki, Thailand, dan Amerika Serikat.
                   </p>
@@ -266,6 +286,7 @@
                 <img
                   src="assets/img/factory-overview.jpg"
                   alt="Fasilitas Pabrik DTY Indorama"
+                  data-i18n-attr="alt|about.image_alt"
                   class="w-full rounded-2xl border border-white/10"
                   id="aboutImg"
                   width="1200"
@@ -281,35 +302,35 @@
       <!-- STATISTICS -->
       <section class="stats" id="stats">
         <div class="container">
-          <h2 class="sr-only">Statistik dan Kinerja</h2>
+          <h2 class="sr-only" data-i18n="stats.sr_only">Statistik dan Kinerja</h2>
           <div
             class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-12"
           >
             <div class="glass-panel stat-card text-center p-6">
               <h3 class="stat-number" data-target="13" data-suffix="+">0</h3>
-              <p>Tahun Pengalaman</p>
+              <p data-i18n="stats.years">Tahun Pengalaman</p>
             </div>
             <div class="glass-panel stat-card text-center p-6">
               <h3 class="stat-number" data-target="216" data-suffix="">0</h3>
-              <p>Spindles per Mesin</p>
+              <p data-i18n="stats.spindles">Spindles per Mesin</p>
             </div>
             <div class="glass-panel stat-card text-center p-6">
               <h3 class="stat-number" data-target="500" data-suffix=" RPM">
                 0
               </h3>
-              <p>Kecepatan Mesin</p>
+              <p data-i18n="stats.speed">Kecepatan Mesin</p>
             </div>
             <div class="glass-panel stat-card text-center p-6">
               <h3 class="stat-number" data-target="24" data-suffix="/7">0</h3>
-              <p>Jam Kerja Non-stop (3 Shift)</p>
+              <p data-i18n="stats.hours">Jam Kerja Non-stop (3 Shift)</p>
             </div>
           </div>
 
           <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
             <div class="glass-panel p-6 h-100">
               <h3 class="font-heading font-bold mb-4">
-                <i class="ph ph-chart-bar text-accent-blue mr-2"></i> Indikator
-                Kinerja Produksi DTY
+                <i class="ph ph-chart-bar text-accent-blue mr-2"></i> <span data-i18n="stats.chart_title">Indikator
+                Kinerja Produksi DTY</span>
               </h3>
               <div class="chart-container">
                 <canvas id="companyChart"></canvas>
@@ -318,12 +339,12 @@
             <div class="glass-panel p-6 h-100">
               <h3 class="font-heading font-bold mb-4">
                 <i class="ph ph-list-checks text-accent-blue mr-2"></i>
-                Karakteristik Proses Pemintalan
+                <span data-i18n="stats.process_title">Karakteristik Proses Pemintalan</span>
               </h3>
               <div class="flex flex-col gap-4">
                 <div>
                   <div class="flex justify-between text-sm font-semibold mb-1">
-                    <span>Efisiensi Waktu (Satu Tahap Proses)</span>
+                    <span data-i18n="stats.efficiency">Efisiensi Waktu (Satu Tahap Proses)</span>
                     <span class="text-accent-cyan">95%</span>
                   </div>
                   <div class="progress-bar-track">
@@ -332,7 +353,7 @@
                 </div>
                 <div>
                   <div class="flex justify-between text-sm font-semibold mb-1">
-                    <span>Output Harian Benang DTY</span>
+                    <span data-i18n="stats.output">Output Harian Benang DTY</span>
                     <span class="text-accent-cyan">±3 Ton</span>
                   </div>
                   <div class="progress-bar-track">
@@ -341,7 +362,7 @@
                 </div>
                 <div>
                   <div class="flex justify-between text-sm font-semibold mb-1">
-                    <span>Tingkat Kualitas Grade AA/A</span>
+                    <span data-i18n="stats.quality">Tingkat Kualitas Grade AA/A</span>
                     <span class="text-accent-cyan">92%</span>
                   </div>
                   <div class="progress-bar-track">
@@ -350,7 +371,7 @@
                 </div>
                 <div>
                   <div class="flex justify-between text-sm font-semibold mb-1">
-                    <span>Keandalan TCS (Tension Control)</span>
+                    <span data-i18n="stats.tcs">Keandalan TCS (Tension Control)</span>
                     <span class="text-accent-cyan">98%</span>
                   </div>
                   <div class="progress-bar-track">
@@ -367,9 +388,9 @@
       <section class="production" id="produksi">
         <div class="container">
           <div class="section-header text-center mx-auto">
-            <span class="section-tag">Alur Manufaktur</span>
-            <h2 class="section-title">Bagaimana Benang DTY Dibuat?</h2>
-            <p class="section-desc">
+            <span class="section-tag" data-i18n="production.tag">Alur Manufaktur</span>
+            <h2 class="section-title" data-i18n="production.title">Bagaimana Benang DTY Dibuat?</h2>
+            <p class="section-desc" data-i18n="production.desc">
               Proses transformasi dari benang filamen polos (POY) menjadi benang
               bertekstur kenyal, bervolume, dan siap ditenun (DTY) dengan
               pengawasan presisi tinggi.
@@ -381,9 +402,9 @@
             <div class="process-item-timeline">
               <div class="process-badge">1</div>
               <div class="process-card-content glass-panel p-5">
-                <span class="process-tech-term">Bahan Baku (POY)</span>
-                <h3 class="font-heading">Loading POY ke Rak Mesin</h3>
-                <p class="text-slate-300">
+                <span class="process-tech-term" data-i18n="production.step1_term">Bahan Baku (POY)</span>
+                <h3 class="font-heading" data-i18n="production.step1_title">Loading POY ke Rak Mesin</h3>
+                <p class="text-slate-300" data-i18n="production.step1_desc">
                   Proses diawali dengan mengeluarkan gulungan benang
                   <strong>POY (Partially Oriented Yarn)</strong> dari kotak
                   kemasan dan memasangkannya ke rak mesin. POY merupakan benang
@@ -404,6 +425,7 @@
                     width="1200"
                     height="800"
                     alt="Loading POY ke rak mesin"
+                    data-i18n-attr="alt|production.step1_alt"
                     loading="lazy"
                   />
                 </picture>
@@ -414,9 +436,9 @@
             <div class="process-item-timeline">
               <div class="process-badge">2</div>
               <div class="process-card-content glass-panel p-5">
-                <span class="process-tech-term">Threading</span>
-                <h3 class="font-heading">Pemasangan Ujung Benang</h3>
-                <p class="text-slate-300">
+                <span class="process-tech-term" data-i18n="production.step2_term">Threading</span>
+                <h3 class="font-heading" data-i18n="production.step2_title">Pemasangan Ujung Benang</h3>
+                <p class="text-slate-300" data-i18n="production.step2_desc">
                   Setelah POY terpasang di rak, operator melakukan
                   <strong>threading</strong> — yaitu memasang ujung benang ke
                   jalur mesin. Benang ditarik melewati berbagai komponen mesin
@@ -438,6 +460,7 @@
                     width="1200"
                     height="800"
                     alt="Threading benang ke jalur mesin"
+                    data-i18n-attr="alt|production.step2_alt"
                     loading="lazy"
                   />
                 </picture>
@@ -448,9 +471,9 @@
             <div class="process-item-timeline">
               <div class="process-badge">3</div>
               <div class="process-card-content glass-panel p-5">
-                <span class="process-tech-term">Pemanasan & Penarikan</span>
-                <h3 class="font-heading">Drawing & Texturing</h3>
-                <p class="text-slate-300">
+                <span class="process-tech-term" data-i18n="production.step3_term">Pemanasan & Penarikan</span>
+                <h3 class="font-heading" data-i18n="production.step3_title">Drawing & Texturing</h3>
+                <p class="text-slate-300" data-i18n="production.step3_desc">
                   Benang ditarik melewati silinder pemanas (<em>heater</em>)
                   untuk melunakkan serat poliester, kemudian dipuntir
                   (<em>twisting</em>) menggunakan
@@ -474,6 +497,7 @@
                     width="1200"
                     height="800"
                     alt="Proses texturing benang filamen"
+                    data-i18n-attr="alt|production.step3_alt"
                     loading="lazy"
                   />
                 </picture>
@@ -484,9 +508,9 @@
             <div class="process-item-timeline">
               <div class="process-badge">4</div>
               <div class="process-card-content glass-panel p-5">
-                <span class="process-tech-term">Winding</span>
-                <h3 class="font-heading">Penggulungan di Depan Mesin</h3>
-                <p class="text-slate-300">
+                <span class="process-tech-term" data-i18n="production.step4_term">Winding</span>
+                <h3 class="font-heading" data-i18n="production.step4_title">Penggulungan di Depan Mesin</h3>
+                <p class="text-slate-300" data-i18n="production.step4_desc">
                   Setelah benang mendapatkan struktur bertekstur, benang DTY
                   dituntun ke bagian penggulung (<em>take-up winding</em>) di
                   depan mesin. Benang digulung secara seragam ke sebuah
@@ -512,6 +536,7 @@
                     width="1200"
                     height="800"
                     alt="Winding penggulungan benang"
+                    data-i18n-attr="alt|production.step4_alt"
                     loading="lazy"
                   />
                 </picture>
@@ -522,9 +547,9 @@
             <div class="process-item-timeline">
               <div class="process-badge">5</div>
               <div class="process-card-content glass-panel p-5">
-                <span class="process-tech-term">Doffing</span>
-                <h3 class="font-heading">Penggulungan Otomatis (±5,5 kg)</h3>
-                <p class="text-slate-300">
+                <span class="process-tech-term" data-i18n="production.step5_term">Doffing</span>
+                <h3 class="font-heading" data-i18n="production.step5_title">Penggulungan Otomatis (±5,5 kg)</h3>
+                <p class="text-slate-300" data-i18n="production.step5_desc">
                   Ketika gulungan benang mencapai standar berat
                   <strong>±5,5 kg</strong>, mesin secara otomatis melakukan
                   <strong>doffing</strong> — yaitu melepas bobbin yang sudah
@@ -544,6 +569,7 @@
                     width="1200"
                     height="800"
                     alt="Doffing bobbin benang DTY"
+                    data-i18n-attr="alt|production.step5_alt"
                     loading="lazy"
                   />
                 </picture>
@@ -554,9 +580,9 @@
             <div class="process-item-timeline">
               <div class="process-badge">6</div>
               <div class="process-card-content glass-panel p-5">
-                <span class="process-tech-term">Sortir Grade</span>
-                <h3 class="font-heading">Penentuan Mutu & Timbang</h3>
-                <p class="text-slate-300">
+                <span class="process-tech-term" data-i18n="production.step6_term">Sortir Grade</span>
+                <h3 class="font-heading" data-i18n="production.step6_title">Penentuan Mutu & Timbang</h3>
+                <p class="text-slate-300" data-i18n="production.step6_desc">
                   Operator melakukan penyortiran berdasarkan dua kriteria utama:
                   <strong>berat</strong> (paling utama) dan
                   <strong>visual</strong>
@@ -578,6 +604,7 @@
                     width="1200"
                     height="800"
                     alt="Sortir grade benang DTY"
+                    data-i18n-attr="alt|production.step6_alt"
                     loading="lazy"
                   />
                 </picture>
@@ -588,11 +615,11 @@
             <div class="process-item-timeline">
               <div class="process-badge">7</div>
               <div class="process-card-content glass-panel p-5">
-                <span class="process-tech-term">Packing & Distribusi</span>
-                <h3 class="font-heading">
+                <span class="process-tech-term" data-i18n="production.step7_term">Packing & Distribusi</span>
+                <h3 class="font-heading" data-i18n="production.step7_title">
                   Pengemasan & Pengiriman ke Warehouse
                 </h3>
-                <p class="text-slate-300">
+                <p class="text-slate-300" data-i18n="production.step7_desc">
                   Setelah sortir grade, benang masuk area
                   <strong>packing</strong>: ditimbang ulang → dimasukkan ke
                   kardus (karton box) → diberi
@@ -613,6 +640,7 @@
                     width="1200"
                     height="800"
                     alt="Pengemasan benang DTY"
+                    data-i18n-attr="alt|production.step7_alt"
                     loading="lazy"
                   />
                 </picture>
@@ -626,9 +654,9 @@
       <section class="grading" id="grading">
         <div class="container">
           <div class="section-header text-center mx-auto">
-            <span class="section-tag">Quality Control</span>
-            <h2 class="section-title">Standar Grading Berat & Mutu Benang</h2>
-            <p class="section-desc">
+            <span class="section-tag" data-i18n="grading.tag">Quality Control</span>
+            <h2 class="section-title" data-i18n="grading.title">Standar Grading Berat & Mutu Benang</h2>
+            <p class="section-desc" data-i18n="grading.desc">
               Setiap gulungan benang hasil produksi diklasifikasikan secara
               ketat oleh operator berdasarkan berat bersih dan inspeksi visual.
             </p>
@@ -637,9 +665,9 @@
           <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             <div class="glass-panel grade-card grade-aa text-center p-6 h-100">
               <div class="grade-badge mx-auto mb-3">AA</div>
-              <h3 class="font-heading font-bold">Grade Premium</h3>
-              <span class="grade-weight">±5,5 Kg</span>
-              <p class="text-slate-300 text-sm">
+              <h3 class="font-heading font-bold" data-i18n="grading.aa_title">Grade Premium</h3>
+              <span class="grade-weight" data-i18n="grading.aa_weight">±5,5 Kg</span>
+              <p class="text-slate-300 text-sm" data-i18n="grading.aa_desc">
                 Grade kualitas tertinggi. Benang diproduksi nonstop tanpa ada
                 kejadian putus benang, memiliki kerutan tekstur sempurna, dan
                 diameter benang seragam. Layak ekspor ke pasar internasional.
@@ -647,9 +675,9 @@
             </div>
             <div class="glass-panel grade-card grade-a text-center p-6 h-100">
               <div class="grade-badge mx-auto mb-3">A</div>
-              <h3 class="font-heading font-bold">Grade Utama</h3>
-              <span class="grade-weight">5,0 - 5,4 Kg</span>
-              <p class="text-slate-300 text-sm">
+              <h3 class="font-heading font-bold" data-i18n="grading.a_title">Grade Utama</h3>
+              <span class="grade-weight" data-i18n="grading.a_weight">5,0 - 5,4 Kg</span>
+              <p class="text-slate-300 text-sm" data-i18n="grading.a_desc">
                 Kualitas sangat baik. Sedikit di bawah standar AA akibat
                 pemotongan awal yang terkontrol, namun serat benang dan kerutan
                 masih memenuhi syarat ekspor industri.
@@ -657,9 +685,9 @@
             </div>
             <div class="glass-panel grade-card grade-b text-center p-6 h-100">
               <div class="grade-badge mx-auto mb-3">B</div>
-              <h3 class="font-heading font-bold">Grade Standar</h3>
-              <span class="grade-weight">4,5 - 4,9 Kg</span>
-              <p class="text-slate-300 text-sm">
+              <h3 class="font-heading font-bold" data-i18n="grading.b_title">Grade Standar</h3>
+              <span class="grade-weight" data-i18n="grading.b_weight">4,5 - 4,9 Kg</span>
+              <p class="text-slate-300 text-sm" data-i18n="grading.b_desc">
                 Kualitas menengah. Mengalami kejadian benang putus satu kali
                 pada mesin saat penggulungan, direkomendasikan untuk industri
                 tekstil sekunder domestik.
@@ -667,9 +695,9 @@
             </div>
             <div class="glass-panel grade-card grade-c text-center p-6 h-100">
               <div class="grade-badge mx-auto mb-3">C</div>
-              <h3 class="font-heading font-bold">Grade Rendah</h3>
-              <span class="grade-weight">&lt; 4,5 Kg</span>
-              <p class="text-slate-300 text-sm">
+              <h3 class="font-heading font-bold" data-i18n="grading.c_title">Grade Rendah</h3>
+              <span class="grade-weight" data-i18n="grading.c_weight">&lt; 4,5 Kg</span>
+              <p class="text-slate-300 text-sm" data-i18n="grading.c_desc">
                 Grade terendah. Terjadi beberapa kali benang putus atau terdapat
                 cacat visual (berbulu, kendor, kotor). Hanya digunakan untuk
                 produk non-kritis atau masuk limbah daur ulang.
@@ -689,6 +717,7 @@
                 <img
                   src="assets/img/safety-k3.jpg"
                   alt="Prosedur K3 di area pabrik"
+                  data-i18n-attr="alt|safety.image_alt"
                   class="w-full rounded-2xl"
                   width="1200"
                   height="800"
@@ -697,14 +726,15 @@
               </picture>
             </div>
             <div class="lg:w-7/12">
-              <span class="section-tag">K3L & Edukasi</span>
+              <span class="section-tag" data-i18n="safety.tag">K3L & Edukasi</span>
               <h2
                 class="font-heading font-bold mb-4 section-title"
                 style="font-size: 1.75rem"
+                data-i18n="safety.title"
               >
                 Komitmen Keselamatan dan Pengembangan SDM
               </h2>
-              <p class="section-desc mb-6">
+              <p class="section-desc mb-6" data-i18n="safety.desc">
                 Unit DTY Indorama menjunjung tinggi kenyamanan belajar mahasiswa
                 di lingkungan manufaktur nyata dengan standar keselamatan
                 industri global. Lingkungan kerja menjaga suhu
@@ -718,10 +748,10 @@
                     <i class="ph ph-ear"></i>
                   </div>
                   <div>
-                    <h3 class="font-heading font-bold mb-1">
+                    <h3 class="font-heading font-bold mb-1" data-i18n="safety.earplug_title">
                       Earplug (Pelindung Telinga)
                     </h3>
-                    <p class="mb-0 text-sm text-slate-300">
+                    <p class="mb-0 text-sm text-slate-300" data-i18n="safety.earplug_desc">
                       Mesin Murata beroperasi pada kecepatan ±500 RPM secara
                       simultan menimbulkan kebisingan
                       <strong>±80 dB atau lebih</strong>. Earplug wajib
@@ -734,10 +764,10 @@
                     <i class="ph ph-mask-happy"></i>
                   </div>
                   <div>
-                    <h3 class="font-heading font-bold mb-1">
+                    <h3 class="font-heading font-bold mb-1" data-i18n="safety.mask_title">
                       Masker (Pelindung Pernapasan)
                     </h3>
-                    <p class="mb-0 text-sm text-slate-300">
+                    <p class="mb-0 text-sm text-slate-300" data-i18n="safety.mask_desc">
                       Debu benang (<em>yarn dust</em>) terbang di sekitar area
                       mesin. Masker wajib digunakan untuk melindungi saluran
                       pernapasan dari partikel debu halus.
@@ -749,10 +779,10 @@
                     <i class="ph ph-graduation-cap"></i>
                   </div>
                   <div>
-                    <h3 class="font-heading font-bold mb-1">
+                    <h3 class="font-heading font-bold mb-1" data-i18n="safety.vocational_title">
                       Pengalaman Vokasi Nyata
                     </h3>
-                    <p class="mb-0 text-sm text-slate-300">
+                    <p class="mb-0 text-sm text-slate-300" data-i18n="safety.vocational_desc">
                       Mahasiswa dibimbing oleh operator ahli untuk memahami
                       parameter ketegangan benang (TCS), pemeliharaan mesin
                       Murata Jepang, dan analisis visual cacat tenun. Pabrik
@@ -773,9 +803,9 @@
       <section class="gallery" id="galeri">
         <div class="container">
           <div class="section-header text-center mx-auto">
-            <span class="section-tag">Dokumentasi</span>
-            <h2 class="section-title">Galeri Kunjungan Industri</h2>
-            <p class="section-desc">
+            <span class="section-tag" data-i18n="gallery.tag">Dokumentasi</span>
+            <h2 class="section-title" data-i18n="gallery.title">Galeri Kunjungan Industri</h2>
+            <p class="section-desc" data-i18n="gallery.desc">
               Dokumentasi aktivitas observasi mahasiswa PEI ke Area DTY Indorama
               Jatiluhur, Purwakarta pada 26 Mei 2026.
             </p>
@@ -786,6 +816,7 @@
               class="gallery-card-item"
               data-image="assets/img/gallery/gallery-1.jpg"
               data-caption="Mahasiswa PEI di area luar Unit DTY Indorama"
+              data-i18n-attr="data-caption|gallery.1_caption"
             >
               <picture>
                 <source
@@ -797,18 +828,20 @@
                   width="1200"
                   height="900"
                   alt="Foto Kunjungan 1"
+                  data-i18n-attr="alt|gallery.1_alt"
                   loading="lazy"
                 />
               </picture>
               <div class="gallery-overlay">
                 <i class="ph ph-magnifying-glass-plus"></i>
-                <p>Area Luar Unit DTY</p>
+                <p data-i18n="gallery.1_overlay">Area Luar Unit DTY</p>
               </div>
             </div>
             <div
               class="gallery-card-item"
               data-image="assets/img/gallery/gallery-2.jpg"
               data-caption="Penjelasan operator DTY mengenai panel kontrol mesin Murata"
+              data-i18n-attr="data-caption|gallery.2_caption"
             >
               <picture>
                 <source
@@ -820,18 +853,20 @@
                   width="1200"
                   height="900"
                   alt="Foto Kunjungan 2"
+                  data-i18n-attr="alt|gallery.2_alt"
                   loading="lazy"
                 />
               </picture>
               <div class="gallery-overlay">
                 <i class="ph ph-magnifying-glass-plus"></i>
-                <p>Penjelasan Panel Kontrol</p>
+                <p data-i18n="gallery.2_overlay">Penjelasan Panel Kontrol</p>
               </div>
             </div>
             <div
               class="gallery-card-item"
               data-image="assets/img/gallery/gallery-3.jpg"
               data-caption="Barisan bobbins benang DTY di area mesin Murata"
+              data-i18n-attr="data-caption|gallery.3_caption"
             >
               <picture>
                 <source
@@ -843,18 +878,20 @@
                   width="1200"
                   height="900"
                   alt="Barisan bobbins benang DTY di area mesin Murata"
+                  data-i18n-attr="alt|gallery.3_alt"
                   loading="lazy"
                 />
               </picture>
               <div class="gallery-overlay">
                 <i class="ph ph-magnifying-glass-plus"></i>
-                <p>Barisan Bobbins DTY</p>
+                <p data-i18n="gallery.3_overlay">Barisan Bobbins DTY</p>
               </div>
             </div>
             <div
               class="gallery-card-item"
               data-image="assets/img/gallery/gallery-4.jpg"
               data-caption="Detail piringan pemuntir benang (friction discs) pada mesin"
+              data-i18n-attr="data-caption|gallery.4_caption"
             >
               <picture>
                 <source
@@ -866,18 +903,20 @@
                   width="1200"
                   height="900"
                   alt="Foto Kunjungan 4"
+                  data-i18n-attr="alt|gallery.4_alt"
                   loading="lazy"
                 />
               </picture>
               <div class="gallery-overlay">
                 <i class="ph ph-magnifying-glass-plus"></i>
-                <p>Friction Discs Detail</p>
+                <p data-i18n="gallery.4_overlay">Friction Discs Detail</p>
               </div>
             </div>
             <div
               class="gallery-card-item"
               data-image="assets/img/gallery/gallery-5.jpg"
               data-caption="Proses winding gulungan benang DTY di depan mesin"
+              data-i18n-attr="data-caption|gallery.5_caption"
             >
               <picture>
                 <source
@@ -889,18 +928,20 @@
                   width="1200"
                   height="900"
                   alt="Foto Kunjungan 5"
+                  data-i18n-attr="alt|gallery.5_alt"
                   loading="lazy"
                 />
               </picture>
               <div class="gallery-overlay">
                 <i class="ph ph-magnifying-glass-plus"></i>
-                <p>Proses Winding DTY</p>
+                <p data-i18n="gallery.5_overlay">Proses Winding DTY</p>
               </div>
             </div>
             <div
               class="gallery-card-item"
               data-image="assets/img/gallery/gallery-6.jpg"
               data-caption="Laboratorium pengujian warna benang (knit dye test)"
+              data-i18n-attr="data-caption|gallery.6_caption"
             >
               <picture>
                 <source
@@ -912,18 +953,20 @@
                   width="1200"
                   height="900"
                   alt="Foto Kunjungan 6"
+                  data-i18n-attr="alt|gallery.6_alt"
                   loading="lazy"
                 />
               </picture>
               <div class="gallery-overlay">
                 <i class="ph ph-magnifying-glass-plus"></i>
-                <p>Laboratorium QC</p>
+                <p data-i18n="gallery.6_overlay">Laboratorium QC</p>
               </div>
             </div>
             <div
               class="gallery-card-item"
               data-image="assets/img/gallery/gallery-7.jpg"
               data-caption="Timbangan digital untuk menetapkan grading AA, A, B, atau C"
+              data-i18n-attr="data-caption|gallery.7_caption"
             >
               <picture>
                 <source
@@ -935,18 +978,20 @@
                   width="1200"
                   height="900"
                   alt="Foto Kunjungan 7"
+                  data-i18n-attr="alt|gallery.7_alt"
                   loading="lazy"
                 />
               </picture>
               <div class="gallery-overlay">
                 <i class="ph ph-magnifying-glass-plus"></i>
-                <p>Proses Timbang Benang</p>
+                <p data-i18n="gallery.7_overlay">Proses Timbang Benang</p>
               </div>
             </div>
             <div
               class="gallery-card-item"
               data-image="assets/img/gallery/gallery-8.jpg"
               data-caption="Pemberian label identitas produk sebelum masuk gudang"
+              data-i18n-attr="data-caption|gallery.8_caption"
             >
               <picture>
                 <source
@@ -958,18 +1003,20 @@
                   width="1200"
                   height="900"
                   alt="Foto Kunjungan 8"
+                  data-i18n-attr="alt|gallery.8_alt"
                   loading="lazy"
                 />
               </picture>
               <div class="gallery-overlay">
                 <i class="ph ph-magnifying-glass-plus"></i>
-                <p>Pemberian Label Kemasan</p>
+                <p data-i18n="gallery.8_overlay">Pemberian Label Kemasan</p>
               </div>
             </div>
             <div
               class="gallery-card-item"
               data-image="assets/img/gallery/gallery-9.jpg"
               data-caption="Troli berisi gulungan benang DTY siap dikirim ke warehouse"
+              data-i18n-attr="data-caption|gallery.9_caption"
             >
               <picture>
                 <source
@@ -981,18 +1028,20 @@
                   width="1200"
                   height="900"
                   alt="Foto Kunjungan 9"
+                  data-i18n-attr="alt|gallery.9_alt"
                   loading="lazy"
                 />
               </picture>
               <div class="gallery-overlay">
                 <i class="ph ph-magnifying-glass-plus"></i>
-                <p>Troli Benang Siap ke Warehouse</p>
+                <p data-i18n="gallery.9_overlay">Troli Benang Siap ke Warehouse</p>
               </div>
             </div>
             <div
               class="gallery-card-item"
               data-image="assets/img/gallery/gallery-10.jpg"
               data-caption="Mahasiswa PEI mempelajari prosedur keselamatan K3 di area kerja"
+              data-i18n-attr="data-caption|gallery.10_caption"
             >
               <picture>
                 <source
@@ -1004,18 +1053,20 @@
                   width="1200"
                   height="900"
                   alt="Foto Kunjungan 10"
+                  data-i18n-attr="alt|gallery.10_alt"
                   loading="lazy"
                 />
               </picture>
               <div class="gallery-overlay">
                 <i class="ph ph-magnifying-glass-plus"></i>
-                <p>Prosedur Keselamatan K3</p>
+                <p data-i18n="gallery.10_overlay">Prosedur Keselamatan K3</p>
               </div>
             </div>
             <div
               class="gallery-card-item"
               data-image="assets/img/gallery/gallery-11.jpg"
               data-caption="Diskusi bersama operator DTY mengenai proses maintenance mesin"
+              data-i18n-attr="data-caption|gallery.11_caption"
             >
               <picture>
                 <source
@@ -1027,18 +1078,20 @@
                   width="1200"
                   height="900"
                   alt="Foto Kunjungan 11"
+                  data-i18n-attr="alt|gallery.11_alt"
                   loading="lazy"
                 />
               </picture>
               <div class="gallery-overlay">
                 <i class="ph ph-magnifying-glass-plus"></i>
-                <p>Diskusi Maintenance Mesin</p>
+                <p data-i18n="gallery.11_overlay">Diskusi Maintenance Mesin</p>
               </div>
             </div>
             <div
               class="gallery-card-item"
               data-image="assets/img/gallery/gallery-12.jpg"
               data-caption="Foto bersama mahasiswa PEI dan manajemen DTY Indorama"
+              data-i18n-attr="data-caption|gallery.12_caption"
             >
               <picture>
                 <source
@@ -1050,12 +1103,13 @@
                   width="1200"
                   height="900"
                   alt="Foto Kunjungan 12"
+                  data-i18n-attr="alt|gallery.12_alt"
                   loading="lazy"
                 />
               </picture>
               <div class="gallery-overlay">
                 <i class="ph ph-magnifying-glass-plus"></i>
-                <p>Sesi Foto Bersama</p>
+                <p data-i18n="gallery.12_overlay">Sesi Foto Bersama</p>
               </div>
             </div>
           </div>
@@ -1070,6 +1124,7 @@
             class="dialog__close"
             data-stisla-dialog-dismiss
             aria-label="Tutup"
+            data-i18n-attr="aria-label|lightbox.close"
           >
             <i class="ph ph-x"></i>
           </button>
@@ -1077,6 +1132,7 @@
             <img
               src=""
               alt="Detail Gambar"
+              data-i18n-attr="alt|lightbox.image_alt"
               id="lightboxImg"
               class="w-full rounded-t-lg"
               style="max-height: 70vh; object-fit: contain"
@@ -1101,9 +1157,9 @@
       <section class="contact" id="kontak">
         <div class="container">
           <div class="section-header text-center mx-auto">
-            <span class="section-tag">Hubungi Kami</span>
-            <h2 class="section-title">Kirimkan Pertanyaan Anda</h2>
-            <p class="section-desc">
+            <span class="section-tag" data-i18n="contact.tag">Hubungi Kami</span>
+            <h2 class="section-title" data-i18n="contact.title">Kirimkan Pertanyaan Anda</h2>
+            <p class="section-desc" data-i18n="contact.desc">
               Apakah Anda memiliki pertanyaan seputar kunjungan vokasi,
               penelitian, atau spesifikasi benang DTY? Tim kami siap merespons.
             </p>
@@ -1111,12 +1167,13 @@
 
           <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
             <div class="glass-panel p-6 h-auto">
-              <h3 class="font-heading font-bold mb-5">Formulir Kontak</h3>
+              <h3 class="font-heading font-bold mb-5" data-i18n="contact.form_title">Formulir Kontak</h3>
               <form id="contactForm">
                 <div class="mb-4">
                   <label
                     for="formName"
                     class="text-sm font-semibold text-slate-300 mb-2 block"
+                    data-i18n="contact.name_label"
                     >Nama Lengkap</label
                   >
                   <input
@@ -1124,12 +1181,14 @@
                     id="formName"
                     class="input w-full"
                     placeholder="Masukkan nama Anda"
+                    data-i18n-attr="placeholder|contact.name_placeholder"
                   />
                 </div>
                 <div class="mb-4">
                   <label
                     for="formEmail"
                     class="text-sm font-semibold text-slate-300 mb-2 block"
+                    data-i18n="contact.email_label"
                     >Alamat Email</label
                   >
                   <input
@@ -1137,12 +1196,14 @@
                     id="formEmail"
                     class="input w-full"
                     placeholder="contoh@domain.com"
+                    data-i18n-attr="placeholder|contact.email_placeholder"
                   />
                 </div>
                 <div class="mb-4">
                   <label
                     for="formMessage"
                     class="text-sm font-semibold text-slate-300 mb-2 block"
+                    data-i18n="contact.message_label"
                     >Pesan Anda</label
                   >
                   <textarea
@@ -1150,10 +1211,11 @@
                     class="textarea w-full"
                     rows="4"
                     placeholder="Tuliskan pesan atau pertanyaan Anda di sini..."
+                    data-i18n-attr="placeholder|contact.message_placeholder"
                   ></textarea>
                 </div>
                 <button type="submit" class="button button--primary w-full">
-                  <i class="ph ph-paper-plane-tilt"></i> Kirim Pesan
+                  <i class="ph ph-paper-plane-tilt"></i> <span data-i18n="contact.submit">Kirim Pesan</span>
                 </button>
               </form>
             </div>
@@ -1163,8 +1225,8 @@
                 <div class="flex gap-3">
                   <i class="ph ph-map-pin text-accent-blue text-lg mt-1"></i>
                   <div>
-                    <h3 class="font-heading font-bold mb-1">Lokasi Unit DTY</h3>
-                    <p class="mb-0 text-sm text-slate-300">
+                    <h3 class="font-heading font-bold mb-1" data-i18n="contact.location_title">Lokasi Unit DTY</h3>
+                    <p class="mb-0 text-sm text-slate-300" data-i18n="contact.location_address">
                       Kembangkuning, Kecamatan Jatiluhur, Kabupaten Purwakarta,
                       Jawa Barat, 41152, Indonesia.
                     </p>
@@ -1173,7 +1235,7 @@
                 <div class="flex gap-3">
                   <i class="ph ph-phone text-accent-blue text-lg mt-1"></i>
                   <div>
-                    <h3 class="font-heading font-bold mb-1">Nomor Telepon</h3>
+                    <h3 class="font-heading font-bold mb-1" data-i18n="contact.phone_title">Nomor Telepon</h3>
                     <p class="mb-0 text-sm text-slate-300">
                       +62 (264) 123-4567
                     </p>
@@ -1182,7 +1244,7 @@
                 <div class="flex gap-3">
                   <i class="ph ph-envelope text-accent-blue text-lg mt-1"></i>
                   <div>
-                    <h3 class="font-heading font-bold mb-1">
+                    <h3 class="font-heading font-bold mb-1" data-i18n="contact.email_title">
                       Surat Elektronik
                     </h3>
                     <p class="mb-0 text-sm text-slate-300">rzaeid@proton.me</p>
@@ -1196,10 +1258,11 @@
                 role="button"
                 tabindex="0"
                 aria-label="Klik untuk memuat peta"
+                data-i18n-attr="aria-label|contact.map_aria"
               >
                 <div class="map-placeholder__content">
                   <i class="ph ph-map-trifold"></i>
-                  <p>Klik untuk memuat peta</p>
+                  <p data-i18n="contact.map_placeholder">Klik untuk memuat peta</p>
                   <span class="map-placeholder__sub"
                     >Politeknik Enjiniring Indorama, Purwakarta</span
                   >
@@ -1224,7 +1287,7 @@
               >
                 <span class="text-white">DTY Indorama</span>
               </a>
-            <p class="text-slate-300 text-sm mt-3 leading-relaxed">
+            <p class="text-slate-300 text-sm mt-3 leading-relaxed" data-i18n="footer.desc">
               Portal edukatif mengenai proses manufaktur benang DTY di PT
               Indorama Synthetics Tbk, kolaborasi dengan PEI.
             </p>
@@ -1263,6 +1326,7 @@
           <div>
             <h4
               class="text-sm font-semibold text-white uppercase tracking-wider mb-4"
+              data-i18n="footer.nav_title"
             >
               Navigasi
             </h4>
@@ -1271,6 +1335,7 @@
                 <a
                   href="#hero"
                   class="text-slate-300 text-sm hover:text-white transition-colors duration-200"
+                  data-i18n="nav.home"
                   >Beranda</a
                 >
               </li>
@@ -1278,6 +1343,7 @@
                 <a
                   href="#tentang"
                   class="text-slate-300 text-sm hover:text-white transition-colors duration-200"
+                  data-i18n="nav.about"
                   >Tentang</a
                 >
               </li>
@@ -1285,6 +1351,7 @@
                 <a
                   href="#produksi"
                   class="text-slate-300 text-sm hover:text-white transition-colors duration-200"
+                  data-i18n="nav.production"
                   >Produksi</a
                 >
               </li>
@@ -1292,6 +1359,7 @@
                 <a
                   href="#grading"
                   class="text-slate-300 text-sm hover:text-white transition-colors duration-200"
+                  data-i18n="nav.grading"
                   >Grading</a
                 >
               </li>
@@ -1299,6 +1367,7 @@
                 <a
                   href="#k3-edukasi"
                   class="text-slate-300 text-sm hover:text-white transition-colors duration-200"
+                  data-i18n="nav.safety"
                   >K3 & Edukasi</a
                 >
               </li>
@@ -1309,6 +1378,7 @@
           <div>
             <h4
               class="text-sm font-semibold text-white uppercase tracking-wider mb-4"
+              data-i18n="footer.gallery_title"
             >
               Galeri
             </h4>
@@ -1317,6 +1387,7 @@
                 <a
                   href="#galeri"
                   class="text-slate-300 text-sm hover:text-white transition-colors duration-200"
+                  data-i18n="footer.gallery_link"
                   >Foto Kunjungan</a
                 >
               </li>
@@ -1324,6 +1395,7 @@
                 <a
                   href="#kontak"
                   class="text-slate-300 text-sm hover:text-white transition-colors duration-200"
+                  data-i18n="nav.contact"
                   >Kontak</a
                 >
               </li>
@@ -1334,6 +1406,7 @@
           <div>
             <h4
               class="text-sm font-semibold text-white uppercase tracking-wider mb-4"
+              data-i18n="footer.resources_title"
             >
               Sumber Daya
             </h4>
@@ -1384,6 +1457,7 @@
       src="https://cdn.jsdelivr.net/npm/@stisla/vanilla@3/dist/stisla.min.js"
       defer
     ></script>
+    <script src="assets/js/i18n.js" defer></script>
     <script src="assets/js/script.min.js" defer></script>
     <script>
       // Lazy load Chart.js only when stats section is visible

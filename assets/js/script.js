@@ -162,9 +162,9 @@ document.addEventListener("DOMContentLoaded", () => {
       new Chart(ctx, {
         type: 'bar',
         data: {
-          labels: ['Efisiensi Mesin', 'Kualitas Produk (AA/A)', 'Kepatuhan K3', 'Ketersediaan Bahan Baku', 'Kemitraan Vokasi'],
+          labels: I18n.t("chart.labels").split(","),
           datasets: [{
-            label: 'Indeks Kinerja (%)',
+            label: I18n.t("stats.chart_label"),
             data: [95, 92, 98, 88, 100],
             backgroundColor: [
               'rgba(59, 130, 246, 0.65)',
@@ -264,8 +264,8 @@ document.addEventListener("DOMContentLoaded", () => {
       const message = document.getElementById("formMessage").value.trim();
 
       if (!name || !email || !message) {
-        Stisla.toast.warning("Formulir belum lengkap", {
-          description: "Harap isi semua bidang sebelum mengirim."
+        Stisla.toast.warning(I18n.t("toast.form_incomplete"), {
+          description: I18n.t("toast.fill_all_fields")
         });
         return;
       }
@@ -273,12 +273,12 @@ document.addEventListener("DOMContentLoaded", () => {
       const submitBtn = contactForm.querySelector("button[type='submit']");
       const originalText = submitBtn.innerHTML;
 
-      submitBtn.innerHTML = "<span class='spinner spinner--sm'></span> Mengirim...";
+      submitBtn.innerHTML = "<span class='spinner spinner--sm'></span> " + I18n.t("toast.sending");
       submitBtn.disabled = true;
 
       setTimeout(() => {
-        Stisla.toast.success("Pesan Terkirim!", {
-          description: `Terima kasih ${name}, pesan Anda telah diterima. (Static Demo)`
+        Stisla.toast.success(I18n.t("toast.message_sent"), {
+          description: I18n.t("toast.thanks", { name: name })
         });
         contactForm.reset();
         submitBtn.innerHTML = originalText;
