@@ -966,6 +966,11 @@ section {
   align-items: center;
   gap: 8px;
   margin-left: auto;
+  order: 2;
+}
+
+.navbar__menu {
+  order: 1;
 }
 
 .theme-toggle {
