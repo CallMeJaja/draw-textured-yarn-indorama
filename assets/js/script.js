@@ -72,10 +72,12 @@ document.addEventListener("DOMContentLoaded", () => {
   // Close mobile menu on outside click
   document.addEventListener("click", (e) => {
     const menu = document.querySelector(".navbar__menu");
-    const toggle = document.querySelector("[data-stisla-navbar-toggle]");
+    const actions = document.querySelector(".navbar__actions");
     
     if (menu && menu.dataset.state === "open") {
-      if (!menu.contains(e.target) && !toggle.contains(e.target)) {
+      // Tutup jika klik di luar navbar__actions dan navbar__menu
+      if (!menu.contains(e.target) && !actions.contains(e.target)) {
+        const toggle = document.querySelector("[data-stisla-navbar-toggle]");
         toggle.click();
       }
     }
