@@ -294,6 +294,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
   if (mapPlaceholder) {
     const loadMap = () => {
+      const wrapper = document.createElement("div");
+      wrapper.className = "map-iframe-wrapper";
+
       const iframe = document.createElement("iframe");
       iframe.src =
         "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3963.74483962324!2d107.41476911054514!3d-6.553863164041237!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e690eef96f8b8dd%3A0x90e544db728376b5!2sPoliteknik%20Enjinering%20Indorama!5e0!3m2!1sen!2sid!4v1782274823899!5m2!1sen!2sid";
@@ -304,7 +307,9 @@ document.addEventListener("DOMContentLoaded", () => {
       iframe.loading = "lazy";
       iframe.referrerPolicy = "strict-origin-when-cross-origin";
       iframe.title = "Lokasi Politeknik Enjiniring Indorama di Google Maps";
-      mapPlaceholder.replaceWith(iframe);
+
+      wrapper.appendChild(iframe);
+      mapPlaceholder.replaceWith(wrapper);
     };
 
     mapPlaceholder.addEventListener("click", loadMap);

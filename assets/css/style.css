@@ -696,7 +696,12 @@ section {
 
 .map-placeholder__content p {
   font-weight: 600;
-  margin-bottom: 8px;
+  margin-bottom: 4px;
+}
+
+.map-placeholder__sub {
+  font-size: 0.8125rem;
+  color: #64748b;
 }
 
 .map-placeholder__content a {
@@ -723,6 +728,19 @@ section {
 [data-theme="light"] .map-placeholder__content { color: #475569; }
 [data-theme="light"] .map-placeholder__content i { color: #2563eb; }
 [data-theme="light"] .map-placeholder__content a { color: #2563eb; }
+[data-theme="light"] .map-placeholder__sub { color: #94a3b8; }
+
+.map-iframe-wrapper {
+  aspect-ratio: 16 / 10;
+  min-height: 200px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+[data-theme="light"] .map-iframe-wrapper {
+  border-color: rgba(0, 0, 0, 0.08);
+}
 
 @media (max-width: 64rem) {
   .contact-grid {
