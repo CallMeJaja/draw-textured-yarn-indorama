@@ -39,6 +39,7 @@
       href="assets/img/hero-group-sm.webp"
       type="image/webp"
       media="(max-width: 640px)"
+      fetchpriority="high"
     />
     <link
       rel="preload"
@@ -46,6 +47,7 @@
       href="assets/img/hero-group.webp"
       type="image/webp"
       media="(min-width: 641px)"
+      fetchpriority="high"
     />
 
     <link
@@ -163,6 +165,8 @@
                     class="max-w-[380px] w-full rounded-2xl block"
                     width="380"
                     height="253"
+                    fetchpriority="high"
+                    decoding="async"
                   />
                 </picture>
               </div>
