@@ -679,6 +679,8 @@
                   src="assets/img/safety-k3.jpg"
                   alt="Prosedur K3 di area pabrik"
                   class="w-full rounded-2xl"
+                  width="1200"
+                  height="800"
                   loading="lazy"
                 />
               </picture>
@@ -1150,7 +1152,7 @@
                 <div class="flex gap-3">
                   <i class="ph ph-map-pin text-accent-blue text-lg mt-1"></i>
                   <div>
-                    <h6 class="font-heading font-bold mb-1">Lokasi Unit DTY</h6>
+                    <h3 class="font-heading font-bold mb-1">Lokasi Unit DTY</h3>
                     <p class="mb-0 text-sm text-slate-300">
                       Kembangkuning, Kecamatan Jatiluhur, Kabupaten Purwakarta,
                       Jawa Barat, 41152, Indonesia.
@@ -1160,7 +1162,7 @@
                 <div class="flex gap-3">
                   <i class="ph ph-phone text-accent-blue text-lg mt-1"></i>
                   <div>
-                    <h6 class="font-heading font-bold mb-1">Nomor Telepon</h6>
+                    <h3 class="font-heading font-bold mb-1">Nomor Telepon</h3>
                     <p class="mb-0 text-sm text-slate-300">
                       +62 (264) 123-4567
                     </p>
@@ -1169,17 +1171,17 @@
                 <div class="flex gap-3">
                   <i class="ph ph-envelope text-accent-blue text-lg mt-1"></i>
                   <div>
-                    <h6 class="font-heading font-bold mb-1">
+                    <h3 class="font-heading font-bold mb-1">
                       Surat Elektronik
-                    </h6>
+                    </h3>
                     <p class="mb-0 text-sm text-slate-300">rzaeid@proton.me</p>
                   </div>
                 </div>
               </div>
 
               <div
-                class="rounded-xl overflow-hidden border border-white/10 flex-1"
-                style="min-height: 200px"
+                class="rounded-xl overflow-hidden border border-white/10"
+                style="aspect-ratio: 16/10; min-height: 200px"
               >
                 <iframe
                   src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3963.74483962324!2d107.41476911054514!3d-6.553863164041237!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e690eef96f8b8dd%3A0x90e544db728376b5!2sPoliteknik%20Enjinering%20Indorama!5e0!3m2!1sen!2sid!4v1782274823899!5m2!1sen!2sid"
@@ -1371,7 +1373,26 @@
       src="https://cdn.jsdelivr.net/npm/@stisla/vanilla@3/dist/stisla.min.js"
       defer
     ></script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js" defer></script>
-    <script src="assets/js/script.js" defer></script>
+    <script src="assets/js/script.min.js" defer></script>
+    <script>
+      // Lazy load Chart.js only when stats section is visible
+      (function () {
+        var chartEl = document.getElementById("companyChart");
+        if (!chartEl) return;
+        var obs = new IntersectionObserver(
+          function (entries) {
+            if (entries[0].isIntersecting) {
+              var s = document.createElement("script");
+              s.src = "https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js";
+              s.defer = true;
+              document.body.appendChild(s);
+              obs.disconnect();
+            }
+          },
+          { rootMargin: "200px" }
+        );
+        obs.observe(chartEl);
+      })();
+    </script>
   </body>
 </html>

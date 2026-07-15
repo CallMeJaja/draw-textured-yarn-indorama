@@ -509,7 +509,7 @@ section {
 
 .grade-card.grade-aa::before { background: linear-gradient(90deg, #3b82f6, #06b6d4); }
 .grade-card.grade-a::before { background: #3b82f6; }
-.grade-card.grade-b::before { background: #8b5cf6; }
+.grade-card.grade-b::before { background: #a78bfa; }
 .grade-card.grade-c::before { background: #ef4444; }
 
 .grade-badge {
@@ -527,7 +527,7 @@ section {
 
 .grade-aa .grade-badge { color: #06b6d4; border-color: rgba(6, 182, 212, 0.3); background: rgba(6, 182, 212, 0.05); }
 .grade-a .grade-badge { color: #3b82f6; border-color: rgba(59, 130, 246, 0.3); background: rgba(59, 130, 246, 0.05); }
-.grade-b .grade-badge { color: #8b5cf6; border-color: rgba(139, 92, 246, 0.3); background: rgba(139, 92, 246, 0.05); }
+.grade-b .grade-badge { color: #a78bfa; border-color: rgba(167, 139, 250, 0.3); background: rgba(167, 139, 250, 0.05); }
 .grade-c .grade-badge { color: #ef4444; border-color: rgba(239, 68, 68, 0.3); background: rgba(239, 68, 68, 0.05); }
 
 .grade-weight {
@@ -539,7 +539,7 @@ section {
 
 .grade-aa .grade-weight { color: #06b6d4; }
 .grade-a .grade-weight { color: #3b82f6; }
-.grade-b .grade-weight { color: #8b5cf6; }
+.grade-b .grade-weight { color: #a78bfa; }
 .grade-c .grade-weight { color: #ef4444; }
 
 /* ==========================================================================

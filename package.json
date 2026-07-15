@@ -6,6 +6,8 @@
   "scripts": {
     "build:css": "npx @tailwindcss/cli -i assets/css/tailwind-input.css -o assets/css/tailwind.css",
     "watch:css": "npx @tailwindcss/cli -i assets/css/tailwind-input.css -o assets/css/tailwind.css --watch",
+    "build:js": "npx terser assets/js/script.js -o assets/js/script.min.js -c -m",
+    "build": "npm run build:css && npm run build:js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -22,6 +24,7 @@
   "homepage": "https://github.com/CallMeJaja/draw-textured-yarn-indorama#readme",
   "devDependencies": {
     "@tailwindcss/cli": "^4.3.2",
-    "tailwindcss": "^4.3.2"
+    "tailwindcss": "^4.3.2",
+    "terser": "^5.49.0"
   }
 }

@@ -183,6 +183,9 @@
   }
 }
 @layer utilities {
+  .visible {
+    visibility: visible;
+  }
   .sr-only {
     position: absolute;
     width: 1px;
@@ -292,9 +295,6 @@
   }
   .max-w-\[380px\] {
     max-width: 380px;
-  }
-  .flex-1 {
-    flex: 1;
   }
   .list-none {
     list-style-type: none;
