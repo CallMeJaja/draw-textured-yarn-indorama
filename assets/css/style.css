@@ -236,6 +236,11 @@ h1, h2, h3, h4, h5, h6 {
     border-radius: 0 0 12px 12px;
     overflow: hidden;
     z-index: 999;
+    height: auto;
+  }
+
+  .navbar__menu[data-state="open"] {
+    display: block;
   }
 
   .navbar__nav {
@@ -972,9 +977,10 @@ section {
   flex-shrink: 0;
 }
 
-/* Override Stisla Collapsible on desktop */
+/* On desktop, always show the menu regardless of data-state */
 @media (min-width: 64.0625rem) {
-  .navbar__menu {
+  .navbar__menu,
+  .navbar__menu[data-state="closed"] {
     display: flex !important;
     height: auto !important;
     overflow: visible !important;
