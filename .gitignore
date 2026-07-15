@@ -11,4 +11,4 @@ fix_images.py
 node_modules/
 
 # Tailwind build artifacts
-assets/css/tailwind-input.css
+# assets/css/tailwind-input.css
